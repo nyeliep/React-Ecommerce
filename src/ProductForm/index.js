@@ -39,20 +39,19 @@ const ProductForm = () => {
   let newProductId;
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Process form submission and add the new product
+    
   
     const reader = new FileReader();
 
     reader.onload = () => {
       const imageURL = reader.result;
 
-      // Generate a unique ID for the new product
+ 
       const newProductId = counter.toString();
 
-      // Increment the counter for the next product
       setCounter((prevCounter) => prevCounter + 1);
 
-      // Redirect to the products page with the new product details in query parameters
+      
       const queryParams = new URLSearchParams();
       queryParams.set("name", productData.name);
       queryParams.set("price", productData.price);

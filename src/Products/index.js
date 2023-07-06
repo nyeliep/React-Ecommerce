@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import './style.css'
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const Products =()=>{
+const Products = () => {
   const [products, setProducts] = useState([]);
-
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const getProducts = async () => {
@@ -18,30 +20,59 @@ const Products =()=>{
         console.log(error.message);
       }
     };
-  
+
     getProducts();
   }, []);
 
-console.log({products});
-  if(loading){
-    return <h2>loading...</h2>
-  }
-  return(
-    <div className="product">
-      {products.map((item)=>(
-        <div key={item.id} className="pkey">
-         <img src={item.images[0]} alt={item.title} className="productimg" />
-          <p className="price">price ksh {item.price}</p>
-          <p className="discount">discount {item.discountPercentage}%</p>
 
-          <Link to={`/ProductDetails/${item.id}` }className="btn">
+
+  const handleAddProduct = () => {
+    navigate("/product-form");
+  };
+
+  console.log({products});
+
+  const queryParams = new URLSearchParams(location.search);
+  const newProductName = queryParams.get("name");
+  const newProductPrice = queryParams.get("price");
+  const newProductDiscount = queryParams.get("discount");
+  const newProductImage = queryParams.get("image")
+
+
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+
+  return (
+    <div className="product">
+      <div className="add-product">
+        <button onClick={handleAddProduct}>Add New Product</button>
+      </div>
+      {newProductName && (
+        <div className="new-product-details">
+          <h3>New Product Details:</h3>
+          <p>Name: {newProductName}</p>
+          <p>Price: {newProductPrice}</p>
+          <p>Discount: {newProductDiscount}</p>
+          {newProductImage && (
+            <img src={newProductImage} alt={newProductName} className="productimg" />
+          )}
+        </div>
+      )}
+
+      {products.map((item) => (
+        <div key={item.id} className="pkey">
+          <img src={item.images[0]} alt={item.title} className="productimg" />
+          <p className="price">Price ksh {item.price}</p>
+          <p className="discount">Discount {item.discountPercentage}%</p>
+
+          <Link to={`/ProductDetails/${item.id}`} className="btn">
             <button type="submit">View details</button>
           </Link>
-          </div>
+        </div>
       ))}
-   
     </div>
   );
 };
 
-export default Products
+export default Products;

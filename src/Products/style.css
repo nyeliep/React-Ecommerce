@@ -1,0 +1,48 @@
+.product{
+   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.pkey {
+  width: 200px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.productimg {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  
+}
+
+.price {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.discount {
+  font-size: 14px;
+  color: #888;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.btn button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn button:hover {
+  background-color: #0056b3;
+}

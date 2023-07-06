@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './style.css'
-import { useLocation , useNavigate} from "react-router-dom";
+import { useLocation , useNavigate, Link} from "react-router-dom";
 
 const ProductForm = () => {
   const [productData, setProductData] = useState({
@@ -17,6 +17,9 @@ const ProductForm = () => {
   const newProductPrice = queryParams.get("price");
   const newProductDiscount = queryParams.get("discount");
 
+
+  const [counter, setCounter] = useState(1);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProductData((prevData) => ({
@@ -32,16 +35,23 @@ const ProductForm = () => {
       image: file,
     }));
   };
-
+  
+  let newProductId;
   const handleSubmit = (e) => {
     e.preventDefault();
     // Process form submission and add the new product
   
     const reader = new FileReader();
-  
+
     reader.onload = () => {
       const imageURL = reader.result;
-  
+
+      // Generate a unique ID for the new product
+      const newProductId = counter.toString();
+
+      // Increment the counter for the next product
+      setCounter((prevCounter) => prevCounter + 1);
+
       // Redirect to the products page with the new product details in query parameters
       const queryParams = new URLSearchParams();
       queryParams.set("name", productData.name);
@@ -103,13 +113,16 @@ const ProductForm = () => {
 
       {newProductName && (
         <div className="new-product-details">
-          <h3>New Product Details:</h3>
           {productData.image && (
             <img src={URL.createObjectURL(productData.image)} alt="Product" />
           )}
-          <p> {newProductName}</p>
-          <p>{newProductPrice}</p>
-          <p>{newProductDiscount}</p>
+          <p>{newProductName}</p>
+          <p className="price"> Price ksh {newProductPrice}</p>
+          <p className="discount">Discount{newProductDiscount}%</p>
+
+          <Link to={`/products/${newProductId}`} className="btn">
+            <button type="submit">View details</button>
+          </Link>
         
         </div>
       )}

@@ -17,7 +17,7 @@ width: 70%;
 border: solid 1px #e2e2e2;
 border-radius: 5px;
 }
-.form > button{
+.button{
   border: none;
   border-radius: 5px;
   background-color: rgb(106, 190, 106);

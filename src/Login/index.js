@@ -9,27 +9,27 @@ const Login = ()=>{
   const[password, setPassword] = useState('')
   console.log({password});
 
-const handleSubmit = async(e)=>{
-  e.preventDefault();
+// const handleSubmit = async(e)=>{
+//   e.preventDefault();
 
-  const data = {
-    username: username,
-    password: password
-  }
-  try {
-    const response = await fetch('https://dummyjson.com/auth/login',{
-      method: 'POST',
-      headers:{
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const result = await response.json();
-    console.log({result});
-  } catch (error) {
-    console.log(error.error);
-  }
-}
+//   const data = {
+//     username: username,
+//     password: password
+//   }
+//   try {
+//     const response = await fetch('https://dummyjson.com/auth/login',{
+//       method: 'POST',
+//       headers:{
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(data),
+//     });
+//     const result = await response.json();
+//     console.log({result});
+//   } catch (error) {
+//     console.log(error.error);
+//   }
+// }
 
   return(
     <div>
@@ -47,7 +47,7 @@ const handleSubmit = async(e)=>{
         />
         <br/>
         <br/>
-        <Link to={`/Products/`} ><button type="submit">Login</button></Link>
+        <Link to={`/Products/`} ><button type="submit" className="button">Login</button></Link>
         
       </form>
     </div>

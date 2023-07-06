@@ -46,17 +46,17 @@ const Products = () => {
   return (
     <div className="product">
       <div className="add-product">
-        <button onClick={handleAddProduct}>Add New Product</button>
+        <button onClick={handleAddProduct} className="addBtn">Add New Product</button>
       </div>
       {newProductName && (
         <div className="new-product-details">
-          <h3>New Product Details:</h3>
-          <p>Name: {newProductName}</p>
-          <p>Price: {newProductPrice}</p>
-          <p>Discount: {newProductDiscount}</p>
-          {newProductImage && (
+             {newProductImage && (
             <img src={newProductImage} alt={newProductName} className="productimg" />
           )}
+          <p> {newProductName}</p>
+          <p> {newProductPrice}</p>
+          <p>{newProductDiscount}</p>
+        
         </div>
       )}
 

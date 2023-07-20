@@ -19,6 +19,7 @@ body{
 .form > input{
 padding: 12px 10px;
 width: 70%;
+margin: ;
 border: solid 1px #e2e2e2;
 border-radius: 5px;
 }

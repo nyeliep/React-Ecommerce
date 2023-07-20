@@ -19,13 +19,11 @@ body{
 .form > input{
 padding: 12px 10px;
 width: 70%;
-margin-top: 5%;
 border: solid 1px #e2e2e2;
 border-radius: 5px;
 }
 .button{
   border: none;
-  margin-top: 5%;
   border-radius: 5px;
   background-color: rgb(106, 190, 106);
   padding: 12px 18px;

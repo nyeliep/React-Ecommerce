@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Login from './Login';
 import Products from './Products';
@@ -14,8 +14,9 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/product-form" element={<ProductForm />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
+          <Route path="/product-form" element={<ProductForm />} />
+
         </Routes>
       </BrowserRouter>
     </div>

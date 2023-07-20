@@ -63,9 +63,11 @@ const Products = () => {
       {products.map((item) => (
         <div key={item.id} className="pkey">
           <img src={item.images[0]} alt={item.title} className="productimg" />
+          <p className="productName">{item.title}</p>
           <p className="price">Price ksh {item.price}</p>
           <p className="discount">Discount {item.discountPercentage}%</p>
-
+           
+           <br/>
           <Link to={`/ProductDetails/${item.id}`} className="btn">
             <button type="submit">View details</button>
           </Link>

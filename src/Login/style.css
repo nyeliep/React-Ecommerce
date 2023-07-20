@@ -5,11 +5,16 @@
 }
 body{
   padding: 20px;
+  background-color:	rgb(193, 225, 193);
 }
 .form{
-  margin-top: 20%;
-  width: 40%;
-  margin: 0 auto;
+  margin-top: 10%;
+  width: 50%;
+  margin-left: 20%;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
 }
 .form > input{
 padding: 12px 10px;
